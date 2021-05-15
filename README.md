@@ -1,5 +1,6 @@
 # Presence Detection in Meeting Room
-A simple script to check Presence / Availability of a Meeting Room with an ESP8266 (Wemos D1) and send it to a webserver to check the availability. <img width="1101" alt="Bildschirmfoto 2021-05-15 um 22 15 21" src="https://user-images.githubusercontent.com/84248512/118376909-14fc4e00-b5cb-11eb-9b48-95408b139c51.png">
+A simple script to check Presence / Availability of a Meeting Room with an ESP8266 (Wemos D1) and send it to a webserver to check the availability. <img width="1101" alt="Bildschirmfoto 2021-05-15 um 22 31 10" src="https://user-images.githubusercontent.com/84248512/118377402-5130ae00-b5cd-11eb-8a28-6ba00b330d48.png">
+
 ## Problem?
 Meeting Rooms are offen empty, even if the Booking Tool shows the room as occupied. Some meetings end early or some get cancelled. To Check the availability, I have created this simple effective tool to show the availability. 
 
