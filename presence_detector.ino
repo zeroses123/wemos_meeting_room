@@ -91,11 +91,11 @@ void loop(void) {
   if (state == HIGH) {
     zuletzt = millis();
     Serial.println("Room occupied");
-    meetingstatus = "Belegt";
+    meetingstatus = "Occupied";
   } else {
     if (millis() - zuletzt >= dauer) {
       Serial.println("Room Clear");
-      meetingstatus = "Frei";
+      meetingstatus = "Clear";
     }
   }
 
