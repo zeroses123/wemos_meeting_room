@@ -3,26 +3,26 @@
 $raumanzahl = 4; // Total Number of rooms / sensors
 
 for ($i = 1; $i <= $raumanzahl; $i++) {
-	$filename = "raum" . $i . ".txt"; // Dateiname in dem Belegt oder Frei steht
-	$filetime = filemtime ($filename); // Wann fand die letzte Änderung der Datei statt?
-	$timediff = time() - $filetime; // Differenz zur jetzigen Zeit in sek
+	$filename = "raum" . $i . ".txt"; /
+	$filetime = filemtime ($filename); // When was the last change of the file
+	$timediff = time() - $filetime; // Difference to the current time
 	
-	if(($timediff) < 300) { // Wenn die letzte Änderung unter 5 min statt fand, ist der Sensor ONLINE
-		${'status' . $i} = file_get_contents( $filename ); //Bsp.: status1 = Belegt
-		if (${'status' . $i} == "Frei") ${'class' . $i} ="frei"; //grünes Fenster
+	if(($timediff) < 300) { // If last change of file less than 5 min -> Sensor ONLINE
+		${'status' . $i} = file_get_contents( $filename ); //example.: status1 = Occupied
+		if (${'status' . $i} == "Clear") ${'class' . $i} ="frei"; //green window
 	
-		if (${'status' . $i} == "Belegt") ${'class' . $i} = "belegt"; // rotes Fenster
+		if (${'status' . $i} == "Occupied") ${'class' . $i} = "belegt"; // red window
 	
 		} else {
-			${'status' . $i} = "OFFLINE"; // keine Änderung seit 5 min: OFFLINE
-			${'class' . $i} = "belegt"; // und rotes Fenster
+			${'status' . $i} = "OFFLINE"; // after 5 min and no change of file OFFLINE
+			${'class' . $i} = "belegt"; // red window
 		}
 		
-		${'filetime' . $i} = $filetime; //Bsp $filetime3 = 392293293 Sek
+		${'filetime' . $i} = $filetime; //Example $filetime3 = 392293293 Sek
 		${'timediff' . $i} = $timediff;	
 }
 $minletzteakt = max ($filetime1,$filetime2,$filetime3,$filetime4); //
-$letzteakt = date('d.m.Y H:i:s', $minletzteakt); // Größter Wert der letzten Aktualisierung
+$letzteakt = date('d.m.Y H:i:s', $minletzteakt); // Biggest value to show the latest change
 ?>
 
 <html>
@@ -135,12 +135,12 @@ $letzteakt = date('d.m.Y H:i:s', $minletzteakt); // Größter Wert der letzten A
     </div>
     <div class="header">
       <span id="meetingStatusBar" class="vLine grnVLine"></span>
-      <span id="roomName" class="label_RoomName">Meeting Raum Verfügbarkeit</span>
+      <span id="roomName" class="label_RoomName">Meeting Room Availability/span>
     </div>
     <div class="homeMain">
       <?php
       	for ($i = 1; $i <= $raumanzahl; $i++) { 
-			//if (${'timediff' . $i} < 300) { // Blende Raum aus wenn OFFLINE
+			//if (${'timediff' . $i} < 300) { // Do not show room if OFFLINE
 			echo '<a class="'.${'class' . $i}.'" href="" target="_blank">
 					<h1>Raum '.$i.' '.${'status' . $i}.'</h1>
 			      </a>';
@@ -148,7 +148,7 @@ $letzteakt = date('d.m.Y H:i:s', $minletzteakt); // Größter Wert der letzten A
 		}
 	?>
 	
-		<p class='mini'>Letzte Aktualisierung am <?php echo $letzteakt ?></p><p></p>
+		<p class='mini'>Last Change: <?php echo $letzteakt ?></p><p></p>
 
 	</div>
   </div>
