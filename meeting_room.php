@@ -142,7 +142,7 @@ $letzteakt = date('d.m.Y H:i:s', $minletzteakt); // Biggest value to show the la
       	for ($i = 1; $i <= $raumanzahl; $i++) { 
 			//if (${'timediff' . $i} < 300) { // Do not show room if OFFLINE
 			echo '<a class="'.${'class' . $i}.'" href="" target="_blank">
-					<h1>Raum '.$i.' '.${'status' . $i}.'</h1>
+					<h1>Room '.$i.' '.${'status' . $i}.'</h1>
 			      </a>';
 				  //}
 		}
