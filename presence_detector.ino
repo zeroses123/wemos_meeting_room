@@ -33,7 +33,7 @@ void send()
   Serial.println(host); // Use WiFiClient class to create TCP connections
   WiFiClient client;
   //client.setFingerprint(fingerprint);
-
+ 
   if (!client.connect(host, httpPort)) {
     Serial.println("connection failed");
     return;
