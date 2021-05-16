@@ -83,9 +83,9 @@ void setup(void) {
 
 unsigned long zuletzt = millis();
 unsigned long wifizuletzt = 200000; // Triggers a connection upon beginning
-unsigned long dauer = 300000; // Every Movement in the room triggers the timer of 300000 sec / 5 min
+unsigned long dauer = 300000; // Every Movement in the room triggers the timer for 300000 millisec / 5 min
 unsigned long wifisend = 60000; // Connects to the Server every minute
-int bew = 0;
+
 void loop(void) {
   long state = digitalRead(sensor);
   if (state == HIGH) {
